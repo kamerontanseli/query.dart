@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Example</title>
+</head>
+<body>
+	<script src="../query.js"></script>	
+	<script>
+		
+		var sample_data = [{
+			  "id": 1,
+			  "first_name": "Raymond",
+			  "email": "rcox0@g.co",
+			  "gender": "Male"
+			}, {
+			  "id": 2,
+			  "first_name": "Jacqueline",
+			  "email": "jwashington1@google.cn",
+			  "gender": "Female"
+			}, {
+			  "id": 3,
+			  "first_name": "Diane",
+			  "email": "dmorris2@mlb.com",
+			  "gender": "Female"
+			}, {
+			  "id": 4,
+			  "first_name": "Stephen",
+			  "email": "sjohnston3@skype.com",
+			  "gender": "Male"
+			}, {
+			  "id": 5,
+			  "first_name": "Cheryl",
+			  "email": "cruiz4@who.int",
+			  "gender": "Female"
+		}];
+
+
+		var get_all_emails_with_com = Qy({
+			email__rgx: /com$/
+		});
+
+		console.log(sample_data.filter(get_all_emails_with_com));
+
+		var get_all_females = Qy({
+			gender__eq: "Female"
+		});
+
+		console.log(sample_data.filter(get_all_females));
+
+		var get_all_names_with_a = Qy({
+			first_name__contain: "a"
+		});
+
+		console.log(sample_data.filter(get_all_names_with_a));
+
+	</script>
+</body>
+</html>
