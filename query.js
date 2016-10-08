@@ -15,21 +15,39 @@
             "lt": function(b, a) {
                 return a < b;
             }, // less than
+            "lte": function(b,a) {
+            	return a <= b;
+            },
             "gt": function(b, a) {
                 return a > b;
             }, // greater than
+            "gte": function(b,a) {
+            	return a >= b;
+            },
             "eq": function(b, a) {
                 return a === b;
             },
             "not": function(b, a) {
                 return b !== a;
             },
+            "iexact": function(b, a) {
+            	return b.toLowerCase() === a.toLowerCase();
+            },
+            "icontain": function(b, a) {
+            	return a.toLowerCase().indexOf(b.toLowerCase()) > -1;
+            },
+            "in": function(b, a) {
+            	return this.contain(b, a);
+            },
             "contain": function(b, a) {
                 return a.indexOf(b) > -1;
             },
+            "irgx": function(b, a) {
+            	return a.toLowerCase().match(b);
+            },
             "rgx": function(b, a) {
                     return a.match(b);
-                } // if regex match any
+            } // if regex match any
         };
 
         var queries = query.split("__"), // id__gt ---> id, gt
