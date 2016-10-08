@@ -1,6 +1,16 @@
-var Qy = (function(){
+(function (root, factory) {
+  if(typeof define === "function" && define.amd) {
+    define(["postal"], function(postal){
+      return (root.Qy = factory(postal));
+    });
+  } else if(typeof module === "object" && module.exports) {
+    module.exports = (root.Qy = factory(require("postal")));
+  } else {
+    root.Qy = factory(root.postal);
+  }
+}(this, function(postal) {
 
-	var query_parser = function(query, value) {
+  	var query_parser = function(query, value) {
 	    var query_comparisons = {
 	        "lt": function(b, a) { return a < b; }, // less than
 	        "gt": function(b, a) { return a > b; }, // greater than
@@ -31,5 +41,5 @@ var Qy = (function(){
 	};
 
 	return query_chainer;
-})();
 
+}));
