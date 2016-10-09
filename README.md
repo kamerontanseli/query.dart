@@ -1,5 +1,8 @@
 Query.js
 ===
+
+A Django inspired query library.
+
 ---
 ### Example
 ```javascript
@@ -59,4 +62,17 @@ var get_user = Qy({
 sample_data.filter(get_users_from_2016);
 // [id: 2...]
 
+```
+
+# Aggregate.js 
+---
+A Django inspired aggregation library.
+### Example
+```javascript
+var scores = [{score: 25}, {score: 50}, {score: 60}, {score: 70}];
+Ag.avg("score", scores); // average: 51.25
+Ag.max("score", scores); // max: 70
+Ag.min("score", scores); // min: 25
+Ag.sum("score", scores); // summation: 205
+Ag.count("score", scores); // all objs with field: 4
 ```
