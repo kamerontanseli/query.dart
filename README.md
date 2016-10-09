@@ -20,6 +20,10 @@ Query.js
 | gte    | a >= b     |  id__gte: 5 |
 | eq     | a === b    |  id__eq: 2 |
 | not    | a !== b    |  title__not: "Hello" |
+| startswith | a.match(/^b/) |  title__startswith: "hello" |
+| endswith | a.match(/b$/) |  title__endswith: "goodbye" |
+| istartswith | a.toLowerCase().match(/^b/) |  title__istartswith: "hello" |
+| iendswith | a.toLowerCase().match(/b$/) |  title__iendswith: "goodbye" |
 | contain | a.indexOf(b) > -1 |  title__contain: "hello" |
 | icontain | a.toLowerCase().indexOf(b) > -1 |  title__icontain: /[hello]/g |
 | rgx    | a.match(b) |  title__rgx: /[hello]/g |

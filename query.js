@@ -20,7 +20,7 @@ window.Qy = (function() {
         "not": function(b, a) {
             return b !== a;
         },
-        "iexact": function(b, a) {
+        "iexact":function(b, a) {
             return b.toLowerCase() === a.toLowerCase();
         },
         "icontain": function(b, a) {
@@ -31,6 +31,18 @@ window.Qy = (function() {
         },
         "in": function(b, a) {
             return b.indexOf(a) > -1;
+        },
+        "startswith": function(b, a){
+        	return a.match(new RegExp("^" + b));
+        },
+        "istartswith": function(b, a) {
+        	return a.toLowerCase().match(new RegExp("^"+b));
+        },
+        "endswith": function(b, a) {
+        	return a.match(new RegExp(b + "$"));
+        },
+        "iendswith": function(b, a) {
+        	return a.toLowerCase().match(new RegExp(b + "$"));
         },
         "irgx": function(b, a) {
             return a.toLowerCase().match(b);
