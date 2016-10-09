@@ -69,10 +69,10 @@ sample_data.filter(get_users_from_2016);
 A Django inspired aggregation library.
 ### Example
 ```javascript
-var scores = [{score: 25}, {score: 50}, {score: 60}, {score: 70}];
-Ag.avg("score", scores); // average: 51.25
-Ag.max("score", scores); // max: 70
-Ag.min("score", scores); // min: 25
-Ag.sum("score", scores); // summation: 205
-Ag.count("score", scores); // all objs with field: 4
+var scores = [{user: {score: 25}}, {user: {score: 50}}, {user: {score: 60}}, {user: {score: 70}}];
+Ag.avg("user__score", scores); // average: 51.25
+Ag.max("user__score", scores); // max: 70
+Ag.min("user__score", scores); // min: 25
+Ag.sum("user__score", scores); // summation: 205
+Ag.count("user__score", scores); // all objs with field: 4
 ```
