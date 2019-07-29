@@ -140,21 +140,3 @@ class Query {
 
   filter(List<Map> arr) => arr.where(this._generatePredicate()).toList();
 }
-
-void main() {
-  var qs = Query({'hobbies__sports__inside': 'tennis'});
-
-  List<Map> items = [
-    {
-      'name': 'jerry',
-      'hobbies': {
-        'sports': ['tennis']
-      }
-    },
-    {'name': 'MAX'},
-    {'name': 'alex'}
-  ];
-
-  print(qs.filter(items));
-  print(qs.map(items));
-}
