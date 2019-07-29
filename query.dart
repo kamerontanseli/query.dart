@@ -1,3 +1,5 @@
+import 'common.dart';
+
 Map<String, Function> comparators = {
   'lt': lt,
   'gt': gt,
@@ -99,17 +101,9 @@ Function inside(Function property, dynamic value) {
   return compare;
 }
 
-Function deepPropertyName(List<String> path) {
-  return (Map obj) => path.fold(obj, (before, next) {
-    return before[next] is Map || before[next] is List
-        ? before[next]
-        : before;
-  });
-}
-
 class Query {
   Map query = {};
-  Query(this.query) {}
+  Query(this.query);
 
   Function _generatePredicate() {
     List<Function> pipe = [];

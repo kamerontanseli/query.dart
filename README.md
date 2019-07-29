@@ -1,17 +1,15 @@
-Query.js
+query.dart
 ===
 
 A Django inspired query library.
 
 ---
 ### Example
-```javascript
- var get_ids = Qs({  
-    id__lt: 5
- });
- var ids = [{id: 2}, {id: 6}, {id: 4}];
- ids.filter(get_ids); // {id: 2}, {id: 4}
- ids.map(get_ids); // [true, false, true]
+```dart
+ Query get_ids = new Query({ 'id__lt': 5 });
+ List<Map> ids = [{'id': 2}, {'id': 6}, {'id': 4}];
+ get_ids.filter(ids); // {id: 2}, {id: 4}
+ get_ids.map(ids); // [true, false, true]
 ```
 
 ### Filter Options
@@ -33,10 +31,10 @@ A Django inspired query library.
 | irgx    | a.toLowerCase().match(b) |  title__irgx: /[hello]/g |
 | in | b.indexOf(a) > -1 |  id__in: [1,2,3] |
 
-### Supports Nested Objects and methods
+### Supports Nested Maps and methods
 
-```javascript
-var sample_data = [
+```dart
+List<Map> sample_data = [
     {
      id: 2,
      time: new Date(),
@@ -54,25 +52,26 @@ var sample_data = [
 ];
 
 
-var get_user = Qy({
+Query get_user = new Query({
     "time__getFullYear__eq": 2016, // method
     "user__username__icontain": "ron"// object
 });
 
-sample_data.filter(get_users_from_2016);
-// [id: 2...]
+get_user.filter(sample_data);
+// [{id: 2...}]
 
 ```
 
-# Aggregate.js 
+# aggregate.dart 
 ---
 A Django inspired aggregation library.
 ### Example
-```javascript
-var scores = [{user: {score: 25}}, {user: {score: 50}}, {user: {score: 60}}, {user: {score: 70}}];
-Ag.avg("user__score", scores); // average: 51.25
-Ag.max("user__score", scores); // max: 70
-Ag.min("user__score", scores); // min: 25
-Ag.sum("user__score", scores); // summation: 205
-Ag.count("user__score", scores); // all objs with field: 4
+```dart
+List<Map> scores = [{user: {score: 25}}, {user: {score: 50}}, {user: {score: 60}}, {user: {score: 70}}];
+Aggregate stats = new Aggregate('user__score');
+stats.avg("user__score", scores); // averAggregatee: 51.25
+stats.max("user__score", scores); // max: 70
+stats.min("user__score", scores); // min: 25
+stats.sum("user__score", scores); // summation: 205
+stats.count("user__score", scores); // all objs with field: 4
 ```
